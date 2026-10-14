@@ -30,7 +30,7 @@ export const site = {
       "I build and evolve production web applications with React, Next.js and TypeScript, combining frontend architecture, product thinking and user experience to turn complex requirements into maintainable interfaces.",
     status: "Based in Brazil. Working globally.",
     exploringLabel: "Currently exploring",
-    exploring: ["AI + frontend", "AI-assisted product development", "modern frontend architecture"],
+    exploring: ["AI-assisted development", "Frontend architecture", "Product engineering"],
   },
 
   aboutShort: [

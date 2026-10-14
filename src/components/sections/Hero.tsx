@@ -83,7 +83,19 @@ export function Hero() {
             </figcaption>
           </figure>
 
-          <RetroWindow title="status.txt" meta="live" className="md:mt-2">
+          <RetroWindow
+            title="status.txt"
+            meta={
+              <span className="inline-flex items-center gap-1.5">
+                <span aria-hidden="true" className="relative inline-flex size-1.5">
+                  <span className="live-pulse absolute inset-0 rounded-full bg-live" />
+                  <span className="relative size-1.5 rounded-full bg-live" />
+                </span>
+                live
+              </span>
+            }
+            className="md:mt-2"
+          >
             <dl className="space-y-3 text-[0.875rem]">
               <div>
                 <MonoLabel as="dt">Location</MonoLabel>

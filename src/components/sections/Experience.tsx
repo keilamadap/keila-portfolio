@@ -135,7 +135,7 @@ export function Experience() {
           id="experience-title"
           title={
             <>
-              Four roles, <em className="text-accent">real products</em>, since 2022.
+              <em className="text-accent">Building and evolving</em> web products since 2022.
             </>
           }
           intro="From B2B platforms and production React apps to campaign products and internal tools for a US-based team."

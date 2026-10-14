@@ -37,6 +37,7 @@ export const events: EventEntry[] = [
     location: "it.kitchen · São Paulo, Brazil",
     date: "2025",
     sortKey: "2025",
+    hideOnHome: true,
     photos: [
       {
         src: sonoraTeamBuilding,

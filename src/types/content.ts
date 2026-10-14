@@ -56,6 +56,8 @@ export type EventEntry = {
   date: string;
   /** Optional, for your own reference — entries render in the order listed. */
   sortKey?: string;
+  /** Keep the event on /about only, out of the home page section. */
+  hideOnHome?: boolean;
   photos?: EventPhoto[];
   note: string;
   takeaway: string;

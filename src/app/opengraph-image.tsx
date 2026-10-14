@@ -16,23 +16,23 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#F3EEE4",
-          color: "#1D1A18",
+          background: "#FAF8F6",
+          color: "#1F1B18",
           padding: "56px 64px",
           fontFamily: "serif",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "2px solid #1D1A18", paddingBottom: 14, fontSize: 20, letterSpacing: 4, fontFamily: "monospace" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "2px solid #1F1B18", paddingBottom: 14, fontSize: 20, letterSpacing: 4, fontFamily: "monospace" }}>
           <span>KEILA AMADA — FRONTEND ENGINEER</span>
-          <span style={{ color: "#7B1E2E" }}>NATAL, BR</span>
+          <span style={{ color: "#A8432A" }}>NATAL, BR</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 82, lineHeight: 1.02, letterSpacing: -2 }}>
           <span>Frontend Engineer building</span>
           <span>
-            <span style={{ color: "#7B1E2E", fontStyle: "italic" }}>scalable</span>&nbsp;digital products.
+            <span style={{ color: "#A8432A", fontStyle: "italic" }}>scalable</span>&nbsp;digital products.
           </span>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 20, letterSpacing: 3, fontFamily: "monospace", color: "#4B4541" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 20, letterSpacing: 3, fontFamily: "monospace", color: "#4D4540" }}>
           <span>REACT · NEXT.JS · TYPESCRIPT</span>
           <span>BASED IN BRAZIL. WORKING GLOBALLY.</span>
         </div>

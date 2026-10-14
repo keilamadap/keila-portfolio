@@ -5,6 +5,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Community() {
+  const homeEvents = events.filter((e) => !e.hideOnHome);
+
   return (
     <section aria-labelledby="community-title" className="section-y">
       <div className="container-edition">
@@ -27,9 +29,11 @@ export function Community() {
           }
         />
 
-        {events.length ? (
-          <ul className="grid gap-14 md:grid-cols-2 md:gap-10 lg:grid-cols-3 lg:gap-8">
-            {events.map((e, i) => (
+        {homeEvents.length ? (
+          <ul
+            className={`grid gap-14 md:grid-cols-2 md:gap-10 ${homeEvents.length >= 3 ? "lg:grid-cols-3 lg:gap-8" : "lg:gap-12"}`}
+          >
+            {homeEvents.map((e, i) => (
               <Reveal as="li" key={`${e.name}-${i}`} delay={0.06 * i}>
                 <EventItem event={e} />
               </Reveal>
