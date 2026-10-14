@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+
+# Conteúdo antigo (Case Studies / Writing), mantido só localmente
+archive/
