@@ -35,7 +35,8 @@ export const events: EventEntry[] = [
     name: "MasterChef-style Team Building",
     kind: "Company event",
     location: "it.kitchen · São Paulo, Brazil",
-    date: "[Add date]",
+    date: "2025",
+    sortKey: "2025",
     photos: [
       {
         src: sonoraTeamBuilding,
