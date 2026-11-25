@@ -20,8 +20,8 @@ export default function ExperiencePage() {
       <div className="container-edition pb-16 pt-12 md:pt-16">
         <SectionHeading
           as="h1"
-          number="02"
-          label="Experience"
+          number="01"
+          label="Experience — full record"
           title={
             <>
               Building and evolving <em className="text-accent">production</em> web products since 2022.
@@ -38,6 +38,9 @@ export default function ExperiencePage() {
         <ExperienceLedger variant="full" />
         <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
           <ArrowLink href="/#contact">Get in touch</ArrowLink>
+          <ArrowLink href="/" direction="left">
+            Back to the front page
+          </ArrowLink>
         </div>
       </section>
 

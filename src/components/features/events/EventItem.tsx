@@ -11,11 +11,14 @@ import { cn } from "@/lib/utils";
 export function EventItem({
   event,
   showAllPhotos = false,
+  compact = false,
   className,
 }: {
   event: EventEntry;
-  /** Show every photo in an even grid (used on /about). Default shows the cover only. */
+  /** Show every photo in an even grid. Default shows the cover only. */
   showAllPhotos?: boolean;
+  /** Caption only: hides the takeaway. */
+  compact?: boolean;
   className?: string;
 }) {
   const photos = showAllPhotos ? (event.photos ?? []) : (event.photos ?? []).slice(0, 1);
@@ -60,10 +63,12 @@ export function EventItem({
         <p className="mt-2 text-[0.9375rem] text-ink-2">
           <RichText text={event.note} />
         </p>
-        <p className="mt-3 border-l border-accent pl-3 text-[0.9375rem] text-ink">
-          <span className="label-mono text-ink-3">Takeaway — </span>
-          <RichText text={event.takeaway} />
-        </p>
+        {compact ? null : (
+          <p className="mt-3 border-l border-accent pl-3 text-[0.9375rem] text-ink">
+            <span className="label-mono text-ink-3">Takeaway — </span>
+            <RichText text={event.takeaway} />
+          </p>
+        )}
       </div>
     </article>
   );

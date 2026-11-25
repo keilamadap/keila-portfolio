@@ -1,5 +1,12 @@
 import type { ExperienceEntry, Highlight } from "@/types/content";
 
+/**
+ * Bullets mirror the LinkedIn experience section, in the same order.
+ * The front page shows the first `FEATURED_CONTRIBUTIONS` of each role,
+ * /experience shows them all — so keep the strongest bullets on top.
+ */
+export const FEATURED_CONTRIBUTIONS = 3;
+
 export const experience: ExperienceEntry[] = [
   {
     company: "GoFasti",
@@ -7,87 +14,89 @@ export const experience: ExperienceEntry[] = [
     period: "Apr 2026 — Present",
     start: "2026-04",
     end: null,
-    workModel: "Remote · US-based team",
+    workModel: "Full-time · Remote · US-based team",
     summary:
-      "Leading and contributing to the migration of manual, spreadsheet-based operational workflows into a scalable internal platform.",
+      "Sole frontend engineer, owning the frontend of an internal platform that replaced spreadsheet-based workflows and third-party tools.",
     contributions: [
-      "Helping migrate spreadsheet-based operational workflows into an internal platform, reducing process time by up to 50%.",
-      "Designing frontend architecture and API integration patterns together with backend engineers.",
-      "Collaborating on API contracts, authentication, data structures and request handling.",
-      "Building product workflows with React, TypeScript and TanStack Query.",
-      "Managing asynchronous state and server data across multiple features.",
-      "Contributing to UX and layout decisions for new product features.",
-      "Translating business workflows into technical product requirements.",
-      "Helping bridge communication between engineering and non-technical business teams.",
+      "As the company's sole Frontend Engineer on a fully remote US-based team, I own frontend development end to end: architecture, technical decisions and feature delivery.",
+      "Built the frontend of an internal platform that replaced spreadsheet-based workflows and third-party tools, reducing operational processing time by up to 50% and contributing to a projected $48,000 in annual SaaS savings.",
+      "Defined the frontend architecture and API integration patterns (React, TypeScript, TanStack Query), aligning API contracts, data structures, authentication and server-state handling with backend engineers.",
+      "Use AI-assisted development (Claude, Codex and GitHub Copilot) as part of my daily workflow: I define the architecture and requirements, delegate implementation to AI, and review, test and refine everything before it reaches production, which lets me deliver more as the team's sole frontend engineer.",
+      "Analyzed feature adoption and recommended removing low-value features and unnecessary third-party services, reducing costs.",
+      "Gathered requirements directly from non-technical users, turned them into product features, and trained them on the platform to support adoption.",
     ],
-    technologies: ["React", "TypeScript", "TanStack Query", "REST APIs", "Authentication"],
+    technologies: ["React", "TypeScript", "TanStack Query", "REST APIs", "Authentication", "Claude", "Codex", "GitHub Copilot"],
   },
   {
     company: "Agência Sonora",
-    role: "Frontend Developer",
-    period: "Apr 2025 — Sep 2026",
+    role: "Frontend Engineer",
+    period: "Apr 2025 — Nov 2026",
     start: "2025-04",
-    end: "2026-09",
-    workModel: "Remote",
+    end: "2026-11",
+    workModel: "Part-time · Remote",
     summary:
-      "Delivered promotional and incentive campaign products — multiple web applications with different business rules, audiences and visual identities.",
+      "Web apps for promotional and incentive campaigns — each with its own business rules, audience and deadline — on a shared, reusable frontend base.",
     contributions: [
-      "Delivered more than 20 responsive web applications for promotional and incentive campaigns.",
-      "Built reusable frontend architectures using React, Next.js and TypeScript.",
-      "Used Tailwind CSS and GSAP to implement responsive and interactive experiences.",
-      "Translated Figma designs into production-ready interfaces with a strong mobile-first approach.",
-      "Focused on accessibility, SEO, performance and visual quality.",
-      "Balanced short delivery cycles with maintainable frontend structures.",
+      "Delivered responsive web apps for 20+ promotional and incentive campaigns, each with its own business rules, audience and deadline.",
+      "Built a reusable frontend base with React, Next.js, TypeScript and Tailwind CSS, giving new campaigns a consistent, maintainable starting point.",
+      "Developed interactive experiences and complex animations with GSAP while keeping pages fast and responsive.",
+      "Worked with design and marketing teams to turn client briefs into production-ready applications.",
     ],
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Figma"],
   },
   {
     company: "Truckpag",
-    role: "Frontend Developer",
+    role: "Frontend Engineer",
     period: "Nov 2023 — Apr 2025",
     start: "2023-11",
     end: "2025-04",
-    workModel: "Remote",
+    workModel: "Full-time · Remote",
     summary:
-      "Built features, improved frontend architecture and increased code quality and maintainability in a production React application.",
+      "Production features, test coverage, internationalization and documentation in a React and TypeScript application.",
     contributions: [
-      "Built and evolved production features using React and TypeScript.",
-      "Increased frontend test coverage by approximately 20% with React Testing Library and Jest.",
-      "Led the application's internationalization with i18next — Portuguese, English and Spanish.",
-      "Refactored shared components and logic to improve scalability and reuse.",
-      "Participated in code reviews.",
-      "Produced technical documentation with Writerside, helping centralize business rules and improve onboarding.",
+      "Increased test coverage by 20% with Jest and React Testing Library, catching bugs before production and reducing regressions; reviewed code regularly.",
+      "Led the app's internationalization with i18next, enabling multi-language support.",
+      "Built and evolved production features in a React and TypeScript application, focusing on frontend architecture, UI consistency and maintainability.",
+      "Refactored shared components and logic to improve reusability and code quality.",
+      "Created and maintained technical documentation in Writerside, centralizing knowledge and making onboarding easier.",
     ],
-    technologies: ["React", "TypeScript", "Material UI", "React Testing Library", "Jest", "i18next", "Writerside"],
+    technologies: ["React", "TypeScript", "Material UI", "React Testing Library", "Jest", "i18next", "GitLab", "Writerside"],
   },
   {
-    company: "ESMenezes",
-    role: "Frontend Developer",
+    company: "Esmenezes",
+    role: "Frontend Engineer",
     period: "Nov 2022 — Oct 2023",
     start: "2022-11",
     end: "2023-10",
-    workModel: "Remote",
-    summary: "Worked on B2B and operational web platforms using React and Next.js.",
+    workModel: "Full-time · Remote",
+    summary: "A legacy migration to Next.js and a B2B platform with real-time chat and kanban workflows.",
     contributions: [
-      "Migrated a legacy system to Next.js and Material UI, improving order tracking and overall user experience.",
-      "Built a B2B platform with real-time chat using SignalR.",
-      "Developed kanban-style operational workflows.",
-      "Built responsive React and TypeScript interfaces from Figma designs, with design and product teams.",
-      "Worked with OpenLayers, geolocation and dynamic themes with React Context.",
+      "Migrated a legacy system to Next.js and Material UI, improving order tracking, performance and user experience.",
+      "Built a B2B platform with real-time chat and kanban workflows using SignalR, giving teams better visibility into operations.",
+      "Implemented responsive interfaces from Figma designs with React, TypeScript and styled-components, working closely with design and product.",
     ],
-    technologies: ["React", "Next.js", "TypeScript", "Material UI", "SignalR", "OpenLayers"],
+    technologies: ["React", "Next.js", "TypeScript", "Material UI", "styled-components", "SignalR"],
   },
 ];
 
-/** Only real, verified numbers. Do not add metrics here without a source. */
+/**
+ * Only real, verified numbers (same as LinkedIn). Do not add metrics here without a source.
+ * `featured` ones appear on the front page; /experience shows all of them.
+ */
 export const highlights: Highlight[] = [
   { value: "2022", caption: "Started working professionally in frontend development." },
-  { value: "20+", caption: "Web applications delivered for promotional and incentive campaigns." },
-  { value: "20%", qualifier: "approx.", caption: "Increase in frontend test coverage in a production application." },
   {
     value: "50%",
     qualifier: "up to",
-    caption: "Reduction in process time for workflows migrated from spreadsheets to an internal platform.",
+    featured: true,
+    caption: "Less operational processing time after replacing spreadsheet workflows with an internal platform.",
   },
-  { value: "4", caption: "Professional frontend roles since 2022." },
+  {
+    value: "$48k",
+    qualifier: "projected",
+    featured: true,
+    caption: "Annual SaaS savings the internal platform contributes to.",
+  },
+  { value: "20+", featured: true, caption: "Promotional and incentive campaigns delivered as web apps." },
+  { value: "20%", featured: true, caption: "Increase in test coverage in a production React application." },
 ];

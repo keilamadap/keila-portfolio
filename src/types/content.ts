@@ -11,6 +11,8 @@ export type Highlight = {
   /** Small honest qualifier shown next to the number, e.g. "up to" */
   qualifier?: string;
   caption: string;
+  /** Shown on the front page. /experience shows every highlight. */
+  featured?: boolean;
 };
 
 export type ExperienceEntry = {
@@ -56,7 +58,7 @@ export type EventEntry = {
   date: string;
   /** Optional, for your own reference — entries render in the order listed. */
   sortKey?: string;
-  /** Keep the event on /about only, out of the home page section. */
+  /** Keep the entry in the log but out of the front page. */
   hideOnHome?: boolean;
   photos?: EventPhoto[];
   note: string;

@@ -1,4 +1,4 @@
-import { experience, highlights } from "@/content/experience";
+import { FEATURED_CONTRIBUTIONS, experience, highlights } from "@/content/experience";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Reveal } from "@/components/ui/Reveal";
@@ -8,11 +8,12 @@ import { cn } from "@/lib/utils";
 
 const ROW = "md:grid-cols-[11rem_1fr_1.4fr_2rem] md:gap-x-8";
 
-/** The five verified numbers, as a ruled strip. */
-export function HighlightsStrip() {
+/** The verified numbers, as a ruled strip. `featured` keeps only the front-page ones. */
+export function HighlightsStrip({ featured = false }: { featured?: boolean }) {
+  const items = featured ? highlights.filter((h) => h.featured) : highlights;
   return (
-    <ul className="grid grid-cols-2 border-y border-rule-strong md:grid-cols-5">
-      {highlights.map((h, i) => (
+    <ul className={cn("grid grid-cols-2 border-y border-rule-strong", { 3: "md:grid-cols-3", 4: "md:grid-cols-4" }[items.length] ?? "md:grid-cols-5")}>
+      {items.map((h, i) => (
         <li
           key={h.value}
           className={cn(
@@ -20,7 +21,7 @@ export function HighlightsStrip() {
             i % 2 === 1 && "border-l pl-4 md:pl-5",
             i >= 2 && "border-t md:border-t-0",
             i > 0 && "md:border-l",
-            i === highlights.length - 1 && "col-span-2 border-l-0 md:col-span-1 md:border-l",
+            i === items.length - 1 && i % 2 === 0 &&"col-span-2 border-l-0 md:col-span-1 md:border-l",
           )}
         >
           {h.qualifier ? <MonoLabel className="block">{h.qualifier}</MonoLabel> : <span className="label-mono block">&nbsp;</span>}
@@ -49,10 +50,10 @@ function RoleHeading({ job }: { job: ExperienceEntry }) {
   );
 }
 
-function Contributions({ job }: { job: ExperienceEntry }) {
+function Contributions({ job, limit }: { job: ExperienceEntry; limit?: number }) {
   return (
     <ul className="space-y-2">
-      {job.contributions.map((c) => (
+      {job.contributions.slice(0, limit).map((c) => (
         <li key={c} className="grid grid-cols-[1rem_1fr] text-[0.9375rem]">
           <span aria-hidden="true" className="text-accent">
             —
@@ -65,8 +66,8 @@ function Contributions({ job }: { job: ExperienceEntry }) {
 }
 
 /**
- * `summary` (home): compact ledger, details collapse with native <details> (zero JS).
- * `full` (/experience): every role open, with summary, contributions and stack.
+ * `summary` (home): compact ledger, the key contributions collapse with native <details> (zero JS).
+ * `full` (/experience): every role open, with summary, every contribution and stack.
  */
 export function ExperienceLedger({ variant = "summary" }: { variant?: "summary" | "full" }) {
   if (variant === "full") {
@@ -111,7 +112,7 @@ export function ExperienceLedger({ variant = "summary" }: { variant?: "summary" 
                 Stack — {job.technologies.join(" / ")}
               </MonoLabel>
               <div className="md:col-start-3">
-                <Contributions job={job} />
+                <Contributions job={job} limit={FEATURED_CONTRIBUTIONS} />
               </div>
               <MonoLabel as="p" className="md:hidden">
                 Stack — {job.technologies.join(" / ")}
@@ -139,14 +140,17 @@ export function Experience() {
             </>
           }
           intro="From B2B platforms and production React apps to campaign products and internal tools for a US-based team."
-          action={{ href: "/experience", label: "Full experience" }}
+          action={{ href: "/experience", label: "Full record" }}
         />
         <Reveal>
-          <HighlightsStrip />
+          <HighlightsStrip featured />
         </Reveal>
         <div className="mt-16">
           <ExperienceLedger />
         </div>
+        <ArrowLink href="/experience" className="mt-10">
+          Full record — every role, capabilities & education
+        </ArrowLink>
       </div>
     </section>
   );

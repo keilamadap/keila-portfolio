@@ -24,6 +24,11 @@ export function Footer() {
               </li>
             ))}
             <li>
+              <Link href="/experience" className="link-editorial text-ink-2 hover:text-ink">
+                Full record
+              </Link>
+            </li>
+            <li>
               <Link href="/colophon" className="link-editorial text-ink-2 hover:text-ink">
                 Colophon
               </Link>

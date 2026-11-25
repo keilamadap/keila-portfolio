@@ -10,7 +10,7 @@ export function Contact() {
       <div className="container-edition">
         <div className="flex items-center justify-between border-t border-rule-strong pt-3">
           <MonoLabel tone="ink">
-            <span className="text-accent">§ 04</span>
+            <span className="text-accent">§ 03</span>
             <span aria-hidden="true" className="mx-2 text-ink-3">
               —
             </span>

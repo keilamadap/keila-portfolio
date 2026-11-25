@@ -33,35 +33,15 @@ export const site = {
     exploring: ["AI-assisted development", "Frontend architecture", "Product engineering"],
   },
 
-  aboutShort: [
-    "I'm a Frontend Engineer building and evolving production web applications since 2022.",
-    "My work goes beyond implementing interfaces. I collaborate with backend, product, design and business teams to understand workflows, define technical solutions and turn complex requirements into scalable web products.",
-  ],
-
+  /** Mirrors the LinkedIn "About" (the "Before that" list lives in the experience ledger). */
   about: [
-    "I'm a Frontend Engineer with professional experience building and evolving production web applications since 2022.",
-    "My work goes beyond implementing interfaces. I collaborate with backend, product, design and business teams to understand workflows, define technical solutions and turn complex requirements into scalable web products.",
-    "My experience includes frontend architecture, API integration, state management, responsive interfaces, testing, performance optimization, accessibility and technical debt reduction.",
-    "I care about building interfaces that are technically solid, maintainable and genuinely useful to the people using them.",
-    "Currently, I work with a US-based remote team building internal products and helping migrate manual operational workflows into scalable web applications.",
-    "Outside of day-to-day development, I'm interested in technology events, AI, product engineering and the evolution of frontend development.",
+    "I'm a Frontend Engineer with 4 years of experience building production web applications with React, Next.js and TypeScript.",
+    "Today I'm the frontend engineer at GoFasti, a US-based company, working remotely with the engineering and business teams. I lead the frontend of an internal platform that replaced spreadsheet-based workflows and third-party tools. It reduced operational processing time by up to 50% and is part of a projected $48,000 in annual SaaS savings.",
+    "Beyond the code, I define frontend architecture and API patterns with the backend team, talk directly with the people who use the product, and help decide which features are worth keeping.",
   ],
 
   personal:
     "When I'm away from the editor, you'll probably find me at a tech event, playing games, dancing or roller skating.",
-
-  interests: [
-    "Frontend architecture",
-    "Product engineering",
-    "UX",
-    "Scalable frontend systems",
-    "State management",
-    "API integration",
-    "Performance",
-    "Accessibility",
-    "Testing",
-    "AI-assisted software development",
-  ],
 
   languages: [
     { name: "Portuguese", level: "Native" },
@@ -88,8 +68,12 @@ export const socials: SocialLink[] = [
   },
 ];
 
-export const navigation = [
-  { label: "Experience", href: "/experience", folio: "02" },
-  { label: "About", href: "/about", folio: "03" },
-  { label: "Contact", href: "/#contact", folio: "04" },
-] as const;
+/**
+ * The site is a single front page, so navigation points at its sections.
+ * `page` marks the standalone page a section belongs to (for the active state).
+ */
+export const navigation: readonly { label: string; href: string; folio: string; page?: string }[] = [
+  { label: "Experience", href: "/#experience", folio: "01", page: "/experience" },
+  { label: "About", href: "/#about", folio: "02" },
+  { label: "Contact", href: "/#contact", folio: "03" },
+];

@@ -7,7 +7,7 @@ import truckverseTeam from "@/assets/images/events/truckverse-2024-team.jpg";
 
 /**
  * Events, conferences, meetups and study groups.
- * Add entries here — the home section and /about update automatically.
+ * Add entries here — the "In the room" strip in the About section updates automatically.
  * Put photos in src/assets/images/events/ and import them (next/image
  * then generates sizes and a blur placeholder automatically).
  *
@@ -72,34 +72,3 @@ export const events: EventEntry[] = [
   },
 ];
 
-/** Themes the events section mentions while the log is empty (and alongside it after). */
-export const eventTopics = [
-  "Frontend engineering",
-  "Software development",
-  "Artificial intelligence",
-  "Product development",
-  "Technology trends",
-];
-
-export const exploring = [
-  {
-    title: "AI-assisted software engineering",
-    note: "How AI tools change the way features are planned, written, reviewed and tested.",
-  },
-  {
-    title: "AI applied to web products",
-    note: "Interfaces where AI is part of the product, not a chat box bolted on.",
-  },
-  {
-    title: "Modern frontend architecture",
-    note: "Server-first rendering, data boundaries and keeping growing codebases legible.",
-  },
-  {
-    title: "Scalable product interfaces",
-    note: "Patterns for workflow-heavy and admin products that keep working at size.",
-  },
-  {
-    title: "Developer experience",
-    note: "Documentation, conventions and tooling that make teams faster.",
-  },
-];

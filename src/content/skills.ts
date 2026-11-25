@@ -5,15 +5,16 @@ export const skills: SkillGroup[] = [
   {
     title: "Frontend Engineering",
     description: "The foundation: typed, component-driven interfaces.",
-    items: ["React", "Next.js", "TypeScript", "JavaScript", "Responsive UI", "Component architecture"],
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "TanStack Query", "Responsive UI", "Component architecture"],
   },
   {
     title: "Product & Architecture",
     description: "Where interface work meets product and backend decisions.",
     items: [
       "Frontend architecture",
-      "API integration",
-      "State management",
+      "REST API integration",
+      "Server-state management",
+      "Internationalization (i18n)",
       "Authentication",
       "Authorization",
       "Product workflows",
@@ -28,12 +29,12 @@ export const skills: SkillGroup[] = [
   {
     title: "UI & Design",
     description: "From Figma to production, mobile-first.",
-    items: ["Tailwind CSS", "Material UI", "GSAP", "Figma", "Mobile-first development"],
+    items: ["Tailwind CSS", "Material UI", "styled-components", "GSAP", "Figma-to-code", "Mobile-first development"],
   },
   {
     title: "Engineering Tools",
     description: "Day-to-day workflow and delivery.",
-    items: ["Git", "GitLab", "Docker", "Azure", "Postman", "Writerside"],
+    items: ["Git", "GitLab", "AI-assisted development (Claude, Codex, GitHub Copilot)", "Docker", "Azure", "Postman", "Writerside"],
   },
 ];
 

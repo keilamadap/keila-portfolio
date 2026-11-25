@@ -10,6 +10,18 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
+/** Anchor links are never "current"; a section counts as active on its standalone page. */
+function isItemActive(pathname: string, item: { href: string; page?: string }) {
+  if (item.page) return isActive(pathname, item.page);
+  return !item.href.includes("#") && isActive(pathname, item.href);
+}
+
+const mobileContents: readonly { label: string; href: string; folio: string; page?: string }[] = [
+  { label: "Front page", href: "/", folio: "§" },
+  ...navigation,
+  { label: "Colophon", href: "/colophon", folio: "A" },
+];
+
 /**
  * Desktop: inline links with an active marker.
  * Mobile: a full-screen "Contents" page, like a magazine's table of contents.
@@ -47,7 +59,7 @@ export function SiteNav() {
       <nav aria-label="Primary" className="hidden md:block">
         <ul className="flex items-center gap-6 xl:gap-7">
           {navigation.map((item) => {
-            const active = isActive(pathname, item.href);
+            const active = isItemActive(pathname, item);
             return (
               <li key={item.href}>
                 <Link
@@ -87,21 +99,23 @@ export function SiteNav() {
         <nav aria-label="Mobile" className="container-edition flex min-h-full flex-col py-8">
           <p className="label-mono border-b border-rule-strong pb-3 text-ink-3">Contents</p>
           <ul>
-            {[{ label: "Front page", href: "/", folio: "01" }, ...navigation, { label: "Colophon", href: "/colophon", folio: "05" }].map(
+            {mobileContents.map(
               (item, i) => {
-                const active = item.href === "/" ? pathname === "/" : !item.href.includes("#") && isActive(pathname, item.href);
+                const active = item.href === "/" ? pathname === "/" : isItemActive(pathname, item);
                 return (
                   <li key={item.href} className="border-b border-rule">
                     <Link
                       ref={i === 0 ? firstLinkRef : undefined}
                       href={item.href}
                       aria-current={active ? "page" : undefined}
+                      // Anchor links on the same page don't change the route, so close explicitly.
+                      onClick={() => setOpen(false)}
                       className="flex items-baseline justify-between gap-4 py-4"
                     >
                       <span className={cn("font-serif text-[2.25rem] leading-none", active && "italic text-accent")}>
                         {item.label}
                       </span>
-                      <span className="label-mono text-ink-3">p. {item.folio}</span>
+                      <span className="label-mono text-ink-3">{/^\d/.test(item.folio) ? `§ ${item.folio}` : item.folio}</span>
                     </Link>
                   </li>
                 );

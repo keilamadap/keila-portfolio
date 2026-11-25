@@ -67,15 +67,19 @@ export function Hero() {
         {/* Portrait + status */}
         <div className="grid grid-cols-[1fr_1.1fr] items-start gap-4 sm:gap-6 md:col-span-4 md:grid-cols-1">
           <figure className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden border border-rule-strong bg-paper-2">
+            {/* The frame follows the photo's own ratio, so the image is never cropped. */}
+            <div
+              className="relative overflow-hidden border border-rule-strong bg-paper-2"
+              style={{ aspectRatio: `${portrait.width} / ${portrait.height}` }}
+            >
               <Image
                 src={portrait}
-                alt="Portrait of Keila Amada smiling, arms crossed, wearing a navy polo shirt."
+                alt="Keila Amada smiling in a selfie by the sea, wearing sunglasses and a purple flower in her hair."
                 fill
                 priority
                 placeholder="blur"
                 sizes="(min-width: 768px) 30vw, 45vw"
-                className="object-cover object-[50%_20%] [filter:sepia(0.12)_saturate(0.92)_contrast(1.02)]"
+                className="object-cover object-center [filter:sepia(0.12)_saturate(0.92)_contrast(1.02)]"
               />
             </div>
             <figcaption className="label-mono mt-2 text-ink-3">
