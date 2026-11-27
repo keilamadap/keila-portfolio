@@ -5,9 +5,13 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  // /about was folded into the front page; keep old shared links working.
+  // Old pages were folded into the single landing page; keep shared links working.
   async redirects() {
-    return [{ source: "/about", destination: "/#about", permanent: true }];
+    return [
+      { source: "/about", destination: "/#about", permanent: true },
+      { source: "/experience", destination: "/#experience", permanent: true },
+      { source: "/colophon", destination: "/", permanent: true },
+    ];
   },
 };
 

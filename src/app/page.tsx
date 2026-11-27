@@ -4,9 +4,9 @@ import { Hero } from "@/components/sections/Hero";
 import { ShortAbout } from "@/components/sections/ShortAbout";
 
 /**
- * The whole edition on one page, in reading order:
- * Hero · 01 Experience · 02 About (with events & community) · 03 Contact
- * /experience keeps the full record; /colophon is linked from the footer.
+ * A single landing page with one path, top to bottom:
+ * Hero → 01 Experience → 02 About → 03 Contact.
+ * Each section ends with one "Continue ↓" cue to the next; there is no menu.
  */
 export default function HomePage() {
   return (

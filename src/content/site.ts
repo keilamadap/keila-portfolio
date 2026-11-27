@@ -67,13 +67,3 @@ export const socials: SocialLink[] = [
     href: "https://github.com/keilamadap",
   },
 ];
-
-/**
- * The site is a single front page, so navigation points at its sections.
- * `page` marks the standalone page a section belongs to (for the active state).
- */
-export const navigation: readonly { label: string; href: string; folio: string; page?: string }[] = [
-  { label: "Experience", href: "/#experience", folio: "01", page: "/experience" },
-  { label: "About", href: "/#about", folio: "02" },
-  { label: "Contact", href: "/#contact", folio: "03" },
-];

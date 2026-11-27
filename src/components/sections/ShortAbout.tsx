@@ -1,18 +1,15 @@
 import { site } from "@/content/site";
-import { events } from "@/content/community";
 import { education } from "@/content/skills";
-import { EventItem } from "@/components/features/events/EventItem";
 import { MonoLabel } from "@/components/ui/MonoLabel";
+import { NextSection } from "@/components/ui/NextSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-/** Degrees only (the exchange and technical degree live on /experience). */
+/** Degrees only — the first entries in `education`. */
 const DEGREES = 2;
 
-/** About + community, in one section: the quote, a short bio and the events strip. */
+/** About: the quote, a short bio, languages and degrees. */
 export function ShortAbout() {
-  const homeEvents = events.filter((e) => !e.hideOnHome);
-
   return (
     <section id="about" aria-labelledby="about-title" className="section-y scroll-mt-24 bg-paper-2/60">
       <div className="container-edition">
@@ -64,20 +61,7 @@ export function ShortAbout() {
           </Reveal>
         </div>
 
-        {homeEvents.length ? (
-          <div className="mt-20 border-t border-rule-strong pt-3">
-            <MonoLabel tone="ink" as="p">
-              <span id="community-label">In the room</span> <span className="text-ink-3">— events & community</span>
-            </MonoLabel>
-            <ul aria-labelledby="community-label" className="mt-8 grid gap-14 md:grid-cols-2 md:gap-10">
-              {homeEvents.map((e, i) => (
-                <Reveal as="li" key={`${e.name}-${i}`} delay={0.06 * i}>
-                  <EventItem event={e} compact />
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        ) : null}
+        <NextSection href="#contact" label="Get in touch" />
       </div>
     </section>
   );

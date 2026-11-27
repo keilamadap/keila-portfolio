@@ -57,34 +57,31 @@ h3 1.375 → 1.75rem · body 1.0625rem/1.6 · small .875rem · label .6875rem (m
 * Measure: long-form text capped at ~68ch.
 
 ### Mobile as its own layout
-* Navigation becomes a full-screen **table of contents** with section numbers (below 768px).
+* No menu on any screen size — the page is read top to bottom.
 * Experience ledger rows become stacked entries with the period on top; details use native `<details>`.
 * Numbers strip becomes a 2-column grid of large numerals.
 * Hero places the portrait and the status window side by side under the headline.
 
 ## 5. Page structure
 
-One edition, one page. Navigation: **Experience | About | Contact** (anchors on `/`).
+One landing page, one path. No navigation menu: the hero CTA leads to §01, and each section ends with a single **Continue ↓** cue to the next.
 
-* `/` — Hero · 01 Experience (3 featured numbers, ledger with the 3 key contributions per role) · 02 About (quote, bio, off-the-clock, languages & degrees, "In the room" events strip) · 03 Contact
-* `/experience` — The full record: every number, every contribution, capabilities, education. Linked from §01 and the footer.
-* `/colophon` — How the site is made: type, color, stack, principles. Footer only.
-* `/about` — Folded into the front page; redirects to `/#about`.
+* `/` — Hero → 01 Experience (featured numbers, ledger with every contribution per role, collapsed) → 02 About (quote, bio, off-the-clock, languages & degrees) → 03 Contact
 
 Editorial rule: nothing appears twice on the front page. "Currently exploring" lives only in the hero ticker.
-Content order is meaningful — the first `FEATURED_CONTRIBUTIONS` of each role and highlights marked `featured` reach the front page.
+Only highlights marked `featured` reach the page. `/about`, `/experience` and `/colophon` redirect to `/`.
 
 Case Studies and Writing are archived in `archive/` until there is real data to publish.
 AI appears only in the hero status and the "currently exploring" note.
 
 ## 6. Reusable components
 
-* **ui/** `Container`, `SectionHeading`, `MonoLabel`, `StatusBadge`, `Stamp`, `RetroWindow`, `ArrowLink`, `Reveal` (client), `RichText` (highlights `[placeholders]`)
-* **layout/** `Header`, `SiteNav` (client), `Footer`, `ThemeToggle` (client), `ThemeScript`, `SocialLinks`, `SkipLink`
-* **sections/** one file per home section (`Hero`, `Experience`, `ShortAbout` — which carries the events strip, `Contact`)
-* **features/** `EventItem`, `ExploringTicker` (client)
+* **ui/** `Container`, `SectionHeading`, `MonoLabel`, `StatusBadge`, `Stamp`, `RetroWindow`, `ArrowLink`, `Reveal` (client), `RichText` (highlights `[placeholders]`), `NextSection` (the "Continue ↓" cue)
+* **layout/** `Header` (name + theme toggle), `Footer` (one line), `ThemeToggle` (client), `ThemeScript`, `SocialLinks`, `SkipLink`
+* **sections/** one file per home section (`Hero`, `Experience`, `ShortAbout`, `Contact`)
+* **features/** `ExploringTicker` (client)
 
-Client components are limited to: navigation (active state + mobile menu), theme toggle,
+Client components are limited to: theme toggle,
 scroll reveal and the small "currently exploring" ticker. Everything else is a Server Component.
 
 ## 7. Motion

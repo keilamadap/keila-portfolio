@@ -2,11 +2,5 @@ import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/utils";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  return ["/", "/experience", "/colophon"].map((path) => ({
-    url: absoluteUrl(path),
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: path === "/" ? 1 : 0.7,
-  }));
+  return [{ url: absoluteUrl("/"), lastModified: new Date(), changeFrequency: "monthly", priority: 1 }];
 }

@@ -1,11 +1,6 @@
 import type { ExperienceEntry, Highlight } from "@/types/content";
 
-/**
- * Bullets mirror the LinkedIn experience section, in the same order.
- * The front page shows the first `FEATURED_CONTRIBUTIONS` of each role,
- * /experience shows them all — so keep the strongest bullets on top.
- */
-export const FEATURED_CONTRIBUTIONS = 3;
+/** Bullets mirror the LinkedIn experience section, in the same order. */
 
 export const experience: ExperienceEntry[] = [
   {
@@ -81,7 +76,7 @@ export const experience: ExperienceEntry[] = [
 
 /**
  * Only real, verified numbers (same as LinkedIn). Do not add metrics here without a source.
- * `featured` ones appear on the front page; /experience shows all of them.
+ * Only the `featured` ones appear on the page.
  */
 export const highlights: Highlight[] = [
   { value: "2022", caption: "Started working professionally in frontend development." },

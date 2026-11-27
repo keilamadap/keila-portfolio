@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import portrait from "@/assets/images/keila-amada-portrait.jpg";
 import { site } from "@/content/site";
 import { ExploringTicker } from "@/components/features/hero/ExploringTicker";
@@ -42,25 +41,19 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <Link
-              href="/experience"
+          <div className="mt-8">
+            <a
+              href="#experience"
               className="group inline-flex items-center gap-3 bg-ink px-5 py-3 text-[0.9375rem] text-paper transition-[background-color,box-shadow,transform] hover:-translate-y-0.5 hover:bg-accent hover:text-accent-ink hover:shadow-print"
             >
               Explore my experience
               <span
                 aria-hidden="true"
-                className="transition-transform group-hover:translate-x-1"
+                className="transition-transform group-hover:translate-y-0.5"
               >
-                →
+                ↓
               </span>
-            </Link>
-            <Link
-              href="#contact"
-              className="link-editorial text-[0.9375rem] text-ink hover:text-accent"
-            >
-              Get in touch
-            </Link>
+            </a>
           </div>
         </div>
 

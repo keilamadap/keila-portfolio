@@ -11,7 +11,7 @@ export type Highlight = {
   /** Small honest qualifier shown next to the number, e.g. "up to" */
   qualifier?: string;
   caption: string;
-  /** Shown on the front page. /experience shows every highlight. */
+  /** Only featured highlights are shown on the page. */
   featured?: boolean;
 };
 

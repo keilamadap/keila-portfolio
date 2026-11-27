@@ -1,6 +1,7 @@
 export { ArrowLink } from "./ArrowLink";
 export { Container } from "./Container";
 export { MonoLabel } from "./MonoLabel";
+export { NextSection } from "./NextSection";
 export { RetroWindow } from "./RetroWindow";
 export { Reveal } from "./Reveal";
 export { RichText } from "./RichText";

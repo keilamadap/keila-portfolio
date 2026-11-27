@@ -1,6 +1,6 @@
-import { FEATURED_CONTRIBUTIONS, experience, highlights } from "@/content/experience";
-import { ArrowLink } from "@/components/ui/ArrowLink";
+import { experience, highlights } from "@/content/experience";
 import { MonoLabel } from "@/components/ui/MonoLabel";
+import { NextSection } from "@/components/ui/NextSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { ExperienceEntry } from "@/types/content";
@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 
 const ROW = "md:grid-cols-[11rem_1fr_1.4fr_2rem] md:gap-x-8";
 
-/** The verified numbers, as a ruled strip. `featured` keeps only the front-page ones. */
-export function HighlightsStrip({ featured = false }: { featured?: boolean }) {
-  const items = featured ? highlights.filter((h) => h.featured) : highlights;
+/** The verified numbers marked `featured`, as a ruled strip. */
+function HighlightsStrip() {
+  const items = highlights.filter((h) => h.featured);
   return (
     <ul className={cn("grid grid-cols-2 border-y border-rule-strong", { 3: "md:grid-cols-3", 4: "md:grid-cols-4" }[items.length] ?? "md:grid-cols-5")}>
       {items.map((h, i) => (
@@ -21,7 +21,7 @@ export function HighlightsStrip({ featured = false }: { featured?: boolean }) {
             i % 2 === 1 && "border-l pl-4 md:pl-5",
             i >= 2 && "border-t md:border-t-0",
             i > 0 && "md:border-l",
-            i === items.length - 1 && i % 2 === 0 &&"col-span-2 border-l-0 md:col-span-1 md:border-l",
+            i === items.length - 1 && i % 2 === 0 && "col-span-2 border-l-0 md:col-span-1 md:border-l",
           )}
         >
           {h.qualifier ? <MonoLabel className="block">{h.qualifier}</MonoLabel> : <span className="label-mono block">&nbsp;</span>}
@@ -50,49 +50,8 @@ function RoleHeading({ job }: { job: ExperienceEntry }) {
   );
 }
 
-function Contributions({ job, limit }: { job: ExperienceEntry; limit?: number }) {
-  return (
-    <ul className="space-y-2">
-      {job.contributions.slice(0, limit).map((c) => (
-        <li key={c} className="grid grid-cols-[1rem_1fr] text-[0.9375rem]">
-          <span aria-hidden="true" className="text-accent">
-            —
-          </span>
-          {c}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-/**
- * `summary` (home): compact ledger, the key contributions collapse with native <details> (zero JS).
- * `full` (/experience): every role open, with summary, every contribution and stack.
- */
-export function ExperienceLedger({ variant = "summary" }: { variant?: "summary" | "full" }) {
-  if (variant === "full") {
-    return (
-      <ol className="border-t border-rule-strong">
-        {experience.map((job) => (
-          <li key={job.company} className="border-b border-rule">
-            <Reveal>
-              <article className={cn("grid gap-x-4 gap-y-4 py-10 md:grid", ROW)}>
-                <div className="grid grid-cols-[1fr_auto] gap-y-1 md:contents">
-                  <RoleHeading job={job} />
-                </div>
-                <div className="space-y-5 md:col-start-3">
-                  <p className="text-lede text-ink">{job.summary}</p>
-                  <Contributions job={job} />
-                  <MonoLabel as="p">Stack — {job.technologies.join(" / ")}</MonoLabel>
-                </div>
-              </article>
-            </Reveal>
-          </li>
-        ))}
-      </ol>
-    );
-  }
-
+/** Compact ledger: each role opens in place with native <details> (zero JS). */
+function ExperienceLedger() {
   return (
     <ol className="border-t border-rule-strong">
       {experience.map((job) => (
@@ -101,7 +60,7 @@ export function ExperienceLedger({ variant = "summary" }: { variant?: "summary" 
             <summary className={cn("grid cursor-pointer list-none grid-cols-[1fr_auto] gap-x-4 gap-y-1 py-6 md:items-baseline [&::-webkit-details-marker]:hidden", ROW)}>
               <RoleHeading job={job} />
               <span className="hidden text-[0.9375rem] text-ink-2 md:block">{job.summary}</span>
-              <span aria-hidden="true" className="col-start-2 row-start-2 self-center justify-self-end font-mono md:col-start-auto text-lg text-ink-3 transition-transform group-open:rotate-45 md:row-start-auto">
+              <span aria-hidden="true" className="col-start-2 row-start-2 self-center justify-self-end font-mono text-lg text-ink-3 transition-transform group-open:rotate-45 md:col-start-auto md:row-start-auto">
                 +
               </span>
               <span className="sr-only">Show details</span>
@@ -111,9 +70,16 @@ export function ExperienceLedger({ variant = "summary" }: { variant?: "summary" 
               <MonoLabel as="p" className="hidden md:col-start-2 md:block">
                 Stack — {job.technologies.join(" / ")}
               </MonoLabel>
-              <div className="md:col-start-3">
-                <Contributions job={job} limit={FEATURED_CONTRIBUTIONS} />
-              </div>
+              <ul className="space-y-2 md:col-start-3">
+                {job.contributions.map((c) => (
+                  <li key={c} className="grid grid-cols-[1rem_1fr] text-[0.9375rem]">
+                    <span aria-hidden="true" className="text-accent">
+                      —
+                    </span>
+                    {c}
+                  </li>
+                ))}
+              </ul>
               <MonoLabel as="p" className="md:hidden">
                 Stack — {job.technologies.join(" / ")}
               </MonoLabel>
@@ -125,7 +91,6 @@ export function ExperienceLedger({ variant = "summary" }: { variant?: "summary" 
   );
 }
 
-/** Home section: numbers + compact ledger + link to the full page. */
 export function Experience() {
   return (
     <section id="experience" aria-labelledby="experience-title" className="section-y scroll-mt-24">
@@ -140,17 +105,14 @@ export function Experience() {
             </>
           }
           intro="From B2B platforms and production React apps to campaign products and internal tools for a US-based team."
-          action={{ href: "/experience", label: "Full record" }}
         />
         <Reveal>
-          <HighlightsStrip featured />
+          <HighlightsStrip />
         </Reveal>
         <div className="mt-16">
           <ExperienceLedger />
         </div>
-        <ArrowLink href="/experience" className="mt-10">
-          Full record — every role, capabilities & education
-        </ArrowLink>
+        <NextSection href="#about" label="About me" />
       </div>
     </section>
   );
