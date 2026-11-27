@@ -74,12 +74,12 @@ export function Hero() {
             >
               <Image
                 src={portrait}
-                alt="Keila Amada smiling in a selfie by the sea, wearing sunglasses and a purple flower in her hair."
+                alt="Portrait of Keila Amada smiling, arms crossed, wearing a navy polo shirt."
                 fill
                 priority
                 placeholder="blur"
                 sizes="(min-width: 768px) 30vw, 45vw"
-                className="object-cover object-center [filter:sepia(0.12)_saturate(0.92)_contrast(1.02)]"
+                className="object-cover object-[50%_20%] [filter:sepia(0.12)_saturate(0.92)_contrast(1.02)]"
               />
             </div>
             <figcaption className="label-mono mt-2 text-ink-3">

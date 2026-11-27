@@ -37,7 +37,7 @@ export const experience: ExperienceEntry[] = [
     summary:
       "Web apps for promotional and incentive campaigns — each with its own business rules, audience and deadline — on a shared, reusable frontend base.",
     contributions: [
-      "Delivered responsive web apps for 20+ promotional and incentive campaigns, each with its own business rules, audience and deadline.",
+      "Delivered responsive web apps for 50+ promotional and incentive campaigns, each with its own business rules, audience and deadline.",
       "Built a reusable frontend base with React, Next.js, TypeScript and Tailwind CSS, giving new campaigns a consistent, maintainable starting point.",
       "Developed interactive experiences and complex animations with GSAP while keeping pages fast and responsive.",
       "Worked with design and marketing teams to turn client briefs into production-ready applications.",
@@ -97,6 +97,6 @@ export const highlights: Highlight[] = [
     featured: true,
     caption: "Annual SaaS savings the internal platform contributes to.",
   },
-  { value: "20+", featured: true, caption: "Promotional and incentive campaigns delivered as web apps." },
+  { value: "50+", featured: true, caption: "Promotional and incentive campaigns delivered as web apps." },
   { value: "20%", featured: true, caption: "Increase in test coverage in a production React application." },
 ];
